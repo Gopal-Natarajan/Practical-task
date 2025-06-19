@@ -1,0 +1,17 @@
+<h1>Upcoming Events</h1>
+<ul>
+  {% for event in events %}
+    <li>
+      <a href="{% url 'event_detail' event.id %}">{{ event.title }}</a> - {{ event.date }}
+      ({{ event.registration_count }} registrations)
+    </li>
+  {% empty %}
+    <li>No upcoming events.</li>
+  {% endfor %}
+</ul>
+
+<form method="get">
+  <input type="text" name="q" placeholder="Search events...">
+  <button type="submit">Search</button>
+</form>
+
